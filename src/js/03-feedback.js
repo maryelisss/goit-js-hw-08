@@ -22,7 +22,9 @@ function onFormInput(evt) {
 function onFormSubmit(evt) { 
     evt.preventDefault();
     evt.currentTarget.reset();
+    console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
     localStorage.removeItem(STORAGE_KEY);
+
 };
 
 function populateFeedback() {
@@ -30,6 +32,6 @@ function populateFeedback() {
     if (savedFeedback) {
         email.value = JSON.parse(savedFeedback).email || '';
         message.value = JSON.parse(savedFeedback).message || '';
-
     }
 };
+
